@@ -1,127 +1,50 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/Administrator/Desktop/10.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>孟轩023官网</title>
-    <meta name="description" content="自定义屏幕点击应用">
-    <meta name="generator" content="VitePress v1.3.1">
-    <link rel="preload stylesheet" href="https://registry.npmmirror.com/@gkd-kit/docs/0.0.1725011887959/files/.vitepress/dist/assets/style.cSHzFneL.css" as="style">
-
-
-
-   <script>
-// 设置定时器
-let initialTimer = null;
-let autoRedirectTimer = null;
-
-function resetInitialTimer() {
-    // 清除现有的初始定时器
-    if (initialTimer) {
-        clearTimeout(initialTimer);
-    }
-    // 重新设置5分钟后的初始定时器
-    initialTimer = setTimeout(function() {
-        // 弹出对话框
-        let userChoice = confirm("亲爱的用户您好！孟轩官网后台检测到您在此界面5分钟了，为了保护您的眼睛，您可选择是否开启保护？");
-        if (userChoice) {
-            // 用户点击确定，立即跳转
-            window.location.href = "https://tmx315.github.io/tmx022/"; // 这里替换成你想要跳转的网址
-        } else {
-            // 用户点击取消，设置10秒后自动跳转
-            autoRedirectTimer = setTimeout(function() {
-                window.location.href = "https://tmx315.github.io/tmx002/"; // 同上
-            }, 0); // 10秒 = 10000毫秒
-        }
-    }, 300000); // 5分钟 = 300000毫秒
-}
-
-window.onload = function() {
-    // 立即开始5分钟计时
-    resetInitialTimer();
-};
-
-// 清除自动跳转定时器
-window.onbeforeunload = function() {
-    if (autoRedirectTimer) {
-        clearTimeout(autoRedirectTimer);
-    }
-    if (initialTimer) {
-        clearTimeout(initialTimer);
-    }
-};
-</script>
-
-    
-    <script type="module" src="file:///C:/Users/MENGXUAN/Downloads/%E5%AD%9F%E8%BD%A9002%E5%AE%98%E7%BD%91_files/app.LkN9WXVu.js.%E4%B8%8B%E8%BD%BD"></script>
-    <link rel="preload" href="https://registry.npmmirror.com/@gkd-kit/docs/0.0.1725011887959/files/.vitepress/dist/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="modulepreload" href="https://registry.npmmirror.com/@gkd-kit/docs/0.0.1725011887959/files/.vitepress/dist/assets/chunks/framework.DAuRlsJR.js">
-    <link rel="modulepreload" href="https://registry.npmmirror.com/@gkd-kit/docs/0.0.1725011887959/files/.vitepress/dist/assets/chunks/theme.Dm61Zj67.js">
-    <link rel="modulepreload" href="https://registry.npmmirror.com/@gkd-kit/docs/0.0.1725011887959/files/.vitepress/dist/assets/index.md.8P2pPAO2.lean.js">
-    <link rel="icon" href="file:///C:/Users/MENGXUAN/Desktop/favicon.png" type="image/png">
-    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
-    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
-  <link rel="prefetch" href="https://gkd.li/assets/guide_index.md.B3OSKrGW.js"><link rel="prefetch" href="https://gkd.li/assets/api_index.md.B_aYOoV1.js"><link rel="prefetch" href="https://gkd.li/assets/guide_what-is-gkd.md.sOJC_lah.js"><link rel="prefetch" href="https://gkd.li/assets/guide_faq.md.CgbmzTKT.js"></head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>摄像头切换示例</title>
+</head>
 <body>
-    <div class="VPHero has-image VPHomeHero" data-v-51e12d84="" data-v-502fab92=""><div class="container" data-v-502fab92=""><div class="main" data-v-502fab92=""><!--[--><!--]--><!--[--><h1 class="name" data-v-502fab92=""><span class="clip" data-v-502fab92="">孟轩官网023</span></h1><p class="text" data-v-502fab92="">孟轩官网打造最好</p><p class="tagline" data-v-502fab92="">🚗看看下方惊喜吧！</p>
-<!--]--><!--[--><!--]--><div class="actions" data-v-502fab92=""><!--[-->
-<div class="action" data-v-502fab92=""><a class="VPButton medium brand" href="https://tmx315.lanzouk.com/b00uyfb24d" data-v-502fab92="" data-v-d8218fcc="" se_prerender_url="complete">孟轩官网最新版下载</a></div><div class="action" data-v-502fab92=""><a class="VPButton medium brand" href="https://tmx315.github.io/tmx002/" data-v-502fab92="" data-v-d8218fcc="" se_prerender_url="complete">首页</a></div>
-
-
-
-<!--]--></div><!--[--><!--]--></div>
-<div class="image" data-v-502fab92=""><div class="image-container" data-v-502fab92=""><div class="image-bg" data-v-502fab92=""></div><!--[--><!--[--><!--]--><!--]--></div></div></div></div>
-<video id="video" width="640" height="480" autoplay=""></video>
-<button id="switchCamera">🚗点我切换设备🚓</button><div class="VPFeatures VPHomeFeatures" data-v-51e12d84="" data-v-1dfe752d=""><div class="container" data-v-1dfe752d=""><div class="items" data-v-1dfe752d=""><!--[--><div class="grid-4 item" data-v-1dfe752d=""><div class="VPLink no-icon VPFeature" data-v-1dfe752d="" data-v-b2fee82c=""><!--[--><article class="box" data-v-b2fee82c=""><!----><h2 class="title" data-v-b2fee82c="">①声明✨</h2><p class="details" data-v-b2fee82c="">我承诺！所有设备的调用，我们都不进行上传保存！只在您的本地设备上运行，不进行录制拍照！请您放心使用！</p><!----></article><!--]--></div></div><div class="grid-4 item" data-v-1dfe752d=""><div class="VPLink no-icon VPFeature" data-v-1dfe752d="" data-v-b2fee82c=""><!--[--><article class="box" data-v-b2fee82c=""><!----><h2 class="title" data-v-b2fee82c="">②温馨提示✔</h2><p class="details" data-v-b2fee82c="">官网后台将进行统计网页浏览量、IP地址、浏览器信息、已及浏览人数！</p><!----></article><!--]--></div></div><!--]--></div></div></div>
+<video id="video" width="640" height="480" autoplay></video>
+<button id="switchCamera">切换摄像头</button>
 
 <script>
   let currentStream = null;
 
-  async function getCameraStream(deviceId) {
-    if (currentStream) {
-      currentStream.getTracks().forEach(track => {
-        track.stop();
-      });
-    }
-
+  async function getCameraStream(facingMode) {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
-          deviceId: deviceId ? { exact: deviceId } : undefined
+          facingMode: facingMode
         }
       });
-      document.getElementById('video').srcObject = stream;
-      currentStream = stream;
+      handleStream(stream);
     } catch (err) {
       console.error('Error accessing the camera:', err);
     }
   }
 
-  async function init() {
-    // 获取所有摄像头设备列表
-    const devices = await navigator.mediaDevices.enumerateDevices();
-    const videoInputDevices = devices.filter(device => device.kind === 'videoinput');
-
-    // 尝试打开第一个找到的摄像头（通常是后置摄像头）
-    if (videoInputDevices.length > 0) {
-      await getCameraStream(videoInputDevices[0].deviceId);
+  function handleStream(stream) {
+    const video = document.getElementById('video');
+    if (currentStream) {
+      currentStream.getTracks().forEach(track => {
+        track.stop();
+      });
     }
+    video.srcObject = stream;
+    currentStream = stream;
   }
 
   document.getElementById('switchCamera').addEventListener('click', () => {
-    const devices = currentStream.getVideoTracks()[0].getSettings().deviceId;
-    const nextDevice = devices === 'front' ? 'back' : 'front';
-    const videoInputDevices = Array.from(navigator.mediaDevices.enumerateDevices())
-      .filter(device => device.kind === 'videoinput' && device.label.toLowerCase().includes(nextDevice));
-
-    if (videoInputDevices.length > 0) {
-      getCameraStream(videoInputDevices[0].deviceId);
+    if (currentStream) {
+      const videoTrack = currentStream.getVideoTracks()[0];
+      const facingMode = videoTrack.getSettings().facingMode === 'user' ? 'environment' : 'user';
+      getCameraStream(facingMode);
     }
   });
 
-  init();
+  // 初始化时尝试使用后置摄像头
+  getCameraStream('environment');
 </script>
-<footer class="VPFooter" data-v-e2af0aff="" data-v-c70eb9e7=""><div class="container" data-v-c70eb9e7=""><p class="copyright" data-v-c70eb9e7="">孟轩官网</p></div>
-<div class="container" data-v-c70eb9e7=""><p class="copyright" data-v-c70eb9e7="">版权所有 © 2024 孟轩科技--mxkj</p></div></footer>
-
-</body></html>
+</body>
+</html>
