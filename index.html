@@ -2,49 +2,60 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>摄像头切换示例</title>
+<title>录制视频并下载</title>
 </head>
 <body>
 <video id="video" width="640" height="480" autoplay></video>
-<button id="switchCamera">切换摄像头</button>
+<button id="startBtn">开始录制</button>
+<button id="stopBtn" disabled>停止录制</button>
+<video id="recordedVideo" width="640" height="480" controls style="display: none;"></video>
+<a id="downloadLink" style="display: none;">下载视频</a>
 
 <script>
-  let currentStream = null;
+let mediaRecorder;
+let recordedChunks = [];
 
-  async function getCameraStream(facingMode) {
+document.getElementById('startBtn').addEventListener('click', async () => {
+    // 请求摄像头权限
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: facingMode
-        }
-      });
-      handleStream(stream);
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        document.getElementById('video').srcObject = stream;
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.ondataavailable = event => {
+            // 收集视频数据
+            recordedChunks.push(event.data);
+        };
+        mediaRecorder.start();
+        document.getElementById('stopBtn').disabled = false;
+        document.getElementById('startBtn').disabled = true;
     } catch (err) {
-      console.error('Error accessing the camera:', err);
+        console.error('Error accessing the camera:', err);
     }
-  }
+});
 
-  function handleStream(stream) {
-    const video = document.getElementById('video');
-    if (currentStream) {
-      currentStream.getTracks().forEach(track => {
-        track.stop();
-      });
+document.getElementById('stopBtn').addEventListener('click', () => {
+    if (mediaRecorder) {
+        mediaRecorder.stop();
+        document.getElementById('stopBtn').disabled = true;
+        document.getElementById('startBtn').disabled = false;
+
+        // 处理录制的视频数据
+        mediaRecorder.onstop = () => {
+            const blob = new Blob(recordedChunks, { type: 'video/webm' });
+            const url = URL.createObjectURL(blob);
+            const recordedVideo = document.getElementById('recordedVideo');
+            recordedVideo.src = url;
+            recordedVideo.style.display = 'block'; // 显示录制的视频
+
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = url;
+            downloadLink.download = 'recording.webm'; // 设置下载文件名
+            downloadLink.textContent = '下载视频';
+            downloadLink.style.display = 'inline'; // 显示下载链接
+            recordedChunks = [];
+        };
     }
-    video.srcObject = stream;
-    currentStream = stream;
-  }
-
-  document.getElementById('switchCamera').addEventListener('click', () => {
-    if (currentStream) {
-      const videoTrack = currentStream.getVideoTracks()[0];
-      const facingMode = videoTrack.getSettings().facingMode === 'user' ? 'environment' : 'user';
-      getCameraStream(facingMode);
-    }
-  });
-
-  // 初始化时尝试使用后置摄像头
-  getCameraStream('environment');
+});
 </script>
 </body>
 </html>
